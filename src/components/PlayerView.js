@@ -1,29 +1,22 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import CardView from './CardView';
 import PropTypes from 'prop-types';
 
-export default class PlayerView extends Component {
+export default class PlayerView extends PureComponent {
   static propTypes = {
     player: PropTypes.object.isRequired,
-    updateCard: PropTypes.func.isRequired
-  }
-  // 
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  handleClick = (e) => {
-    this.props.updateCard(e.target.value);
+    handleClick: PropTypes.func.isRequired,
+    selectedCard: PropTypes.object
   }
 
   renderHand(cards) {
-    return cards.map(card => (
-      <input type='submit'
-        onClick={this.handleClick}
-        className='card'
-        name='rank'
-        key={card.rank()+card.suit()}
-        id={card.rank()+card.suit()}
-        value={card.rank()}
+    const { handleClick, selectedCard } = this.props;
+
+    return cards.map((card, i) => (
+      <CardView card={card}
+        key={`card${i}`}
+        handleClick={handleClick}
+        selectedCard={selectedCard}
       />
     ))
   }
@@ -35,8 +28,10 @@ export default class PlayerView extends Component {
     return (
       <div className='player human'>
         <div className="name">{player.name()}</div>
-        <div className="sets">Sets: {player.sets()}</div>
-        {this.renderHand(cards)}
+        <div className="sets">Sets: {player.setCount()}</div>
+        <div className="hand">
+          {this.renderHand(cards)}
+        </div>
       </div>
     );
   }

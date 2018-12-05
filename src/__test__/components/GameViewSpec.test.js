@@ -19,10 +19,9 @@ describe('GameView', () => {
     game.start();
     wrapper = mountView();
 
-    it('calls the callback with a game, player, and rank', () => {
-      debugger;
-      wrapper.first('input[name="rank"]').simulate('click');
-      wrapper.find('#game-form').simulate('submit', {target: {player: {value: 'Robot'}}, preventDefault: jest.fn()});
+    it('calls the callback with a player, and rank', () => {
+      wrapper.find('.robot').first().simulate('click');
+      wrapper.find('.card').first().simulate('click');
 
       expect(playRound).toBeCalledWith('Robot', 'A');
     })

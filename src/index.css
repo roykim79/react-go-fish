@@ -1,14 +1,66 @@
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 50%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+  padding: 10px;
+}
+
+
+.card {
+  border: 1px solid #000;
+  display: inline-block;
+  margin: 4px;
+  padding: 24px 12px;
+}
+
+.human {
+}
+
+.opponents-list {
+  text-align: center;
+}
+
+.round-results-list {
+  border: 1px solid #000;
+  height: 200px;
+  overflow: scroll;
+}
+
+.round-result {
+  margin-bottom: 4px;
+}
+
+.round-result-index {
+  display: inline-block;
+  width: 24px;
+}
+
+.player {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 20px;
+  padding: 10px;
+}
+
+.player-container {
+  text-align: center;
+}
+
+.selected {
+  background: red;
+}
+
+.name {
+  font-size: 24px;
 }
